@@ -1,15 +1,20 @@
 # data-services
 
-To install dependencies:
+## Prerequisites
+1. Install bun.sh by visiting the [official documentation](https://bun.sh/docs/installation)
+2. Create an account with MongoDB Atlas and create a FREE cluster. Note down the connection string.
+3. Copy the `.env.sample` file to `.env` and update the `DB_URI` with the connection string from MongoDB Atlas.
+
+## Steps
+- Install dependencies:
 
 ```bash
 bun install
 ```
 
-To run:
-
+- Import data
 ```bash
-bun run index.ts
+bun start
 ```
 
-This project was created using `bun init` in bun v1.0.30. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+This will install the books in mongodb database.
