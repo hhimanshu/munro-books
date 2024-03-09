@@ -1,4 +1,6 @@
-import { insertBooks } from "./src/lib/db/services/insert-books";
+import { client } from "./src/db";
+import type { Book } from "./src/schemas/books.model";
+import { insertBooks } from "./src/schemas/books.services";
 
 const fetchBooks = async () => {
   const books = await fetch(
@@ -9,19 +11,20 @@ const fetchBooks = async () => {
   return result;
 };
 
-const saveBooks = async (dbUri: string, books: any[]) => {
+const saveBooks = async (books: Book[]) => {
   try {
-    await insertBooks(dbUri, books);
+    const totalInserted: number = await insertBooks(books);
+    console.log(`Inserted ${totalInserted} books`);
   } catch (error) {
     console.error("Error inserting books:", error);
   }
 };
 
-const importBooks = async (dbUri: string) => {
+const importBooks = async () => {
   console.log(`fetching books...`);
   const books = await fetchBooks();
   console.log(`books fetched, saving...`);
-  await saveBooks(dbUri, books as any[]);
+  await saveBooks(books as Book[]);
   console.log(`books saved`);
 };
 
@@ -33,6 +36,6 @@ if (!dbUri) {
 }
 
 console.log(`importing books to ${dbUri}, this may take a while...`);
-await importBooks(dbUri);
+await importBooks();
+await client.close();
 console.log(`books imported`);
-
