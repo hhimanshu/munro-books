@@ -50,10 +50,8 @@ const BookSchema = new mongoose.Schema({
   best_sellers_rank: [BestSellersRankSchema],
 });
 
-
 // Create a text index on the fields 'title', 'author', and 'description'
-BookSchema.index({ title: 'text', author: 'text', description: 'text' });
-
+BookSchema.index({ title: "text", author: "text", description: "text" });
 
 export type Book = mongoose.InferSchemaType<typeof BookSchema>;
 export const Book = mongoose.model("Book", BookSchema);

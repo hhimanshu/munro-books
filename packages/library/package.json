@@ -1,5 +1,5 @@
 {
-  "name": "library",
+  "name": "@munro/library",
   "module": "index.ts",
   "type": "module",
   "scripts": {
