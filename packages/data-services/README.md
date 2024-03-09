@@ -1,4 +1,6 @@
 # data-services
+This projects import books from [this dataset](https://raw.githubusercontent.com/luminati-io/Amazon-popular-books-dataset/main/Amazon_popular_books_dataset.json)
+
 
 ## Prerequisites
 1. Install bun.sh by visiting the [official documentation](https://bun.sh/docs/installation)
