@@ -2,6 +2,9 @@
   "name": "library",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "start:db": "docker-compose up -d"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
